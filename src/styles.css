@@ -1,7 +1,22 @@
 .App {
   font-family: sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  margin: 0;
+}
+
+.header {
+  text-align: center;
+  background-color: #4fdde2;
+  padding: 12px 0;
+  margin-bottom: 45px;
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  font-weight: 800;
 }
 
 .todo .done {
@@ -16,6 +31,7 @@
   margin: 20px 0 0;
   font-family: "Calibri";
   width: 80%;
+  margin: 0 auto;
 }
 
 .todos-container .todo {
@@ -27,6 +43,7 @@
 
 .todo p {
   margin: 0 5px 0;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -36,7 +53,8 @@
   margin-right: 5px;
 }
 
-.todo .remove, .edit {
+.todo .remove,
+.edit {
   margin-left: 5px;
   background: none;
   border: none;
@@ -49,4 +67,16 @@
   margin-bottom: 20px;
   border: 1px solid #cecece;
   border-radius: 3px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 6px 4px 15px -6px #000000bf;
+  margin-bottom: 30px;
+  padding: 20;
+}
+
+.todo-controls button {
+  padding: 5px 15px;
 }

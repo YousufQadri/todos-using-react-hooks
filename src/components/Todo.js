@@ -16,8 +16,8 @@ const Todo = todo => {
 
   const editTodo = () => {
     setEditMode(true);
-    setEditContent(content)
-  }
+    setEditContent(content);
+  };
 
   const saveTodo = e => {
     e.preventDefault();
@@ -29,11 +29,12 @@ const Todo = todo => {
       });
       todo.onEdit(editContent);
     }
-  }
+  };
 
   return (
     <div className="todo">
-      {editMode ?
+      <div className="todo-input">
+        {editMode ? (
           <form onSubmit={e => saveTodo(e)}>
             <input
               type="text"
@@ -41,23 +42,29 @@ const Todo = todo => {
               onChange={({ target }) => setEditContent(target.value)}
             />
           </form>
-          :
+        ) : (
           <p className={done ? "done" : ""} onClick={toggleTodo}>
-            {done ?
+            {done ? (
               <i className="far fa-check-square" />
-              :
+            ) : (
               <i className="far fa-square" />
-            }
-            <span>{content}</span> 
+            )}
+            <span>{content}</span>
           </p>
-      }
-
-      <button onClick={() => editTodo()} title="edit" className="edit">
-        <i className="fas fa-pencil-alt" />
-      </button>
-      <button onClick={() => todo.onRemove()} title="remove" className="remove">
-        <i className="fas fa-trash-alt" />
-      </button>
+        )}
+      </div>
+      <div className="todo-controls">
+        <button onClick={() => editTodo()} title="edit" className="edit">
+          <i className="fas fa-pencil-alt" />
+        </button>
+        <button
+          onClick={() => todo.onRemove()}
+          title="remove"
+          className="remove"
+        >
+          <i className="fas fa-trash-alt" />
+        </button>
+      </div>
     </div>
   );
 };
